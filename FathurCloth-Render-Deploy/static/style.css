@@ -1,0 +1,515 @@
+:root {
+  --kertas: #f2f2f2;
+  --putih: #ffffff;
+  --tinta: #111111;
+  --biru: #414141;
+  --abu: #777777;
+  --garis: #dedede;
+  --salah: #b3261e;
+  --custom: #777777;
+
+  font-family: "Archivo", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  color: var(--tinta);
+  background: #ffffff;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 90px; }
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: linear-gradient(
+    135deg,
+    #ffffff 0%,
+    #eeeeee 40%,
+    #c8c8c8 75%,
+    #f5f5f5 100%
+  ) fixed;
+}
+button, input, select { font: inherit; color: inherit; }
+button { cursor: pointer; }
+:focus-visible { outline: 2px solid var(--biru); outline-offset: 2px; }
+[hidden] { display: none !important; }
+
+/* ---------- Header ---------- */
+.header {
+  position: fixed; 
+  inset: 0 0 auto 0; 
+  z-index: 50;
+  display: flex; 
+  align-items: center; 
+  justify-content: space-between;
+  padding: 14px clamp(16px, 4vw, 48px);
+  overflow: hidden;
+
+  /* --- Transparansi & Saturasi Khas iOS --- */
+  background: rgba(255, 255, 255, 0.03); /* Sangat transparan bening */
+  backdrop-filter: blur(2px) saturate(180%); /* Saturasi 180% adalah kunci khas iPhone */
+  -webkit-backdrop-filter: blur(2px) saturate(180%);
+
+  /* Border & Bayangan Ketebalan Kaca (Liquid Edge) */
+  border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+  box-shadow: 
+    inset 0 1px 1px 0 rgba(255, 255, 255, 0.3), /* Kilau bagian dalam atas */
+    0 8px 32px 0 rgba(0, 0, 0, 0.02);            /* Bayangan bawah halus */
+}
+
+/* Gelembung Refleksi Cairan Khas iOS */
+.header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 50%;
+  background: linear-gradient(
+    180deg, 
+    rgba(255, 255, 255, 0.15) 0%, 
+    rgba(255, 255, 255, 0) 100%
+  );
+  pointer-events: none;
+}
+.logo { font-weight: 900; font-size: 26px; letter-spacing: -0.04em; text-decoration: none; color: var(--tinta); }
+.nav { display: flex; align-items: center; gap: 22px; }
+.nav a, .link { color: var(--tinta); text-decoration: none; font-weight: 600; font-size: 14px; background: none; border: 0; padding: 0; }
+.nav a:hover, .link:hover { color: var(--custom); }
+
+.basket {
+  position: relative; width: 48px; height: 48px; display: grid; place-items: center;
+  background: var(--tinta); color: var(--putih); border: 0; border-radius: 50%;
+  will-change: transform;
+}
+.ring { position: absolute; inset: 0; border-radius: 50%; border: 2px solid var(--custom); opacity: 0; pointer-events: none; }
+.badge {
+  position: absolute; top: -4px; right: -4px; min-width: 20px; height: 20px; padding: 0 5px;
+  display: grid; place-items: center; font-size: 11px; font-weight: 800;
+  background: var(--custom); color: #fff; border-radius: 10px;
+}
+
+/* ---------- Hero ---------- */
+.hero { padding: 120px clamp(16px, 4vw, 48px) 56px; }
+.hero-logo { margin: 0; display: flex; font-weight: 900; line-height: 0.82; letter-spacing: -0.06em; font-size: clamp(7rem, 30vw, 24rem); }
+.mask { display: block; overflow: hidden; padding: 0.04em 0.02em 0.1em; }
+.huruf { display: block; }
+.hero-teks { max-width: 46ch; margin: 28px 0 24px; font-size: 18px; line-height: 1.5; color: #2b323a; }
+
+.btn {
+  display: inline-block; padding: 14px 26px; border: 0; border-radius: 999px;
+  background: var(--tinta); color: var(--putih); font-weight: 700; font-size: 15px; text-decoration: none;
+}
+.btn:hover { background: var(--biru); }
+.btn.ghost { background: transparent; color: var(--tinta); box-shadow: inset 0 0 0 1.5px var(--tinta); }
+.btn[disabled] { opacity: 0.5; pointer-events: none; }
+
+/* ---------- Katalog ---------- */
+.katalog { padding: 24px clamp(16px, 4vw, 48px) 80px; }
+.katalog-head { display: flex; flex-wrap: wrap; align-items: end; justify-content: space-between; gap: 16px; margin-bottom: 28px; }
+h2 { margin: 0; font-size: clamp(28px, 4vw, 40px); letter-spacing: -0.03em; font-weight: 800; }
+.filter, .chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.pill {
+  padding: 8px 16px; border-radius: 999px; border: 1.5px solid var(--garis);
+  background: transparent; font-weight: 600; font-size: 14px;
+}
+.pill[aria-pressed="true"] { background: var(--tinta); color: var(--putih); border-color: var(--tinta); }
+
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 36px 24px; }
+.kosong { grid-column: 1 / -1; color: var(--abu); }
+.kartu { display: flex; flex-direction: column; gap: 12px; }
+.tile {
+  --tile: #ccc;
+  aspect-ratio: 1; display: grid; place-items: center; border-radius: 14px;
+  background: color-mix(in srgb, var(--tile) 24%, #fff);
+  transition: background-color 0.3s;
+}
+.glyph { font-size: clamp(72px, 9vw, 108px); line-height: 1; user-select: none; }
+.fly { position: fixed; z-index: 200; margin: 0; pointer-events: none; will-change: transform, opacity; }
+.kartu-head { display: flex; justify-content: space-between; gap: 12px; align-items: baseline; }
+.kartu-head strong { font-size: 17px; letter-spacing: -0.01em; }
+.harga { font-weight: 700; color: var(--biru); white-space: nowrap; }
+.baris { display: flex; align-items: center; justify-content: space-between; gap: 10px; flex-wrap: wrap; }
+.label { font-size: 13px; color: var(--abu); }
+.swatches { display: flex; gap: 8px; }
+.swatch {
+  width: 26px; height: 26px; border-radius: 50%; border: 0; padding: 0;
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.18);
+}
+.swatch[aria-pressed="true"] { box-shadow: 0 0 0 2px var(--kertas), 0 0 0 4px var(--tinta); }
+.ukuran { display: flex; gap: 6px; flex-wrap: wrap; }
+.sz {
+  min-width: 40px; height: 36px; padding: 0 10px; border-radius: 8px;
+  border: 1.5px solid var(--garis); background: transparent; font-weight: 700; font-size: 13px;
+}
+.sz[aria-pressed="true"] { background: var(--tinta); color: var(--putih); border-color: var(--tinta); }
+.tambah { width: 100%; }
+
+/* ---------- Stepper (jumlah) ---------- */
+.stepper { display: inline-flex; align-items: center; gap: 2px; padding: 4px; border-radius: 999px; background: var(--putih); box-shadow: 0 0 0 1px rgba(24, 34, 46, 0.08); user-select: none; -webkit-user-select: none; }
+.st-step { width: 36px; height: 36px; border: 0; border-radius: 50%; padding: 0; display: grid; place-items: center; background: #f1f3f6; touch-action: none; }
+.st-step:hover { background: #e6e9ee; }
+.st-step path { fill: none; stroke: currentColor; stroke-width: 1.75; stroke-linecap: round; }
+.st-value { position: relative; width: 44px; height: 36px; overflow: hidden; }
+.st-digit { position: absolute; inset: 0; display: grid; place-items: center; font-size: 18px; font-weight: 700; font-variant-numeric: tabular-nums; }
+
+/* ---------- Laci keranjang ---------- */
+.overlay { position: fixed; inset: 0; z-index: 90; background: rgba(15, 20, 25, 0.45); }
+.drawer {
+  position: fixed; top: 0; right: 0; bottom: 0; z-index: 100; width: min(440px, 100%);
+  display: flex; flex-direction: column; background: var(--kertas);
+  box-shadow: -12px 0 40px rgba(15, 20, 25, 0.18);
+}
+.d-head { display: flex; justify-content: space-between; align-items: center; padding: 20px 24px; border-bottom: 1px solid var(--garis); }
+.d-head h2 { font-size: 24px; }
+.icon-btn { width: 40px; height: 40px; font-size: 26px; line-height: 1; border: 0; border-radius: 50%; background: transparent; }
+.icon-btn:hover { background: var(--garis); }
+.d-body { flex: 1; overflow-y: auto; padding: 20px 24px 28px; display: flex; flex-direction: column; gap: 18px; }
+.rows { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 14px; }
+.row { display: grid; grid-template-columns: 64px 1fr; gap: 6px 14px; align-items: center; overflow: hidden; }
+.mini { --tile: #ccc; width: 64px; height: 64px; display: grid; place-items: center; font-size: 32px; border-radius: 10px; background: color-mix(in srgb, var(--tile) 24%, #fff); grid-row: span 2; }
+.row-info { display: flex; flex-direction: column; gap: 2px; font-size: 14px; }
+.row-info span { color: var(--abu); }
+.row-ctl { display: flex; align-items: center; justify-content: space-between; }
+.row .link { color: var(--abu); font-weight: 500; }
+.sum { display: flex; flex-direction: column; gap: 8px; padding-top: 14px; border-top: 1px solid var(--garis); font-size: 15px; }
+.sum div { display: flex; justify-content: space-between; }
+.sum .total { font-size: 20px; font-weight: 800; padding-top: 8px; }
+.catatan { font-size: 13px; color: var(--abu); margin: 0; }
+
+/* ---------- Form ---------- */
+.form { display: flex; flex-direction: column; gap: 14px; }
+.form label, fieldset legend { font-size: 13px; font-weight: 600; color: var(--abu); }
+.form label { display: flex; flex-direction: column; gap: 6px; }
+.form input:not([type="checkbox"]):not([type="radio"]), .form select, .form textarea {
+  padding: 12px 14px; border-radius: 10px; border: 1.5px solid var(--garis); background: var(--putih); font-weight: 500; color: var(--tinta);
+}
+.form textarea { resize: vertical; min-height: 84px; }
+.dua { display: grid; grid-template-columns: 1fr 90px; gap: 12px; }
+fieldset { border: 0; padding: 0; margin: 0; }
+.chip { flex-direction: row !important; position: relative; }
+.chip input { position: absolute; opacity: 0; inset: 0; }
+.chip span, .metode span {
+  padding: 8px 16px; border-radius: 999px; border: 1.5px solid var(--garis); background: var(--putih);
+  font-weight: 700; font-size: 14px; color: var(--tinta);
+}
+.chip:has(input:checked) span, .metode:has(input:checked) span { background: var(--tinta); color: var(--putih); border-color: var(--tinta); }
+.chip:has(input:focus-visible) span, .metode:has(input:focus-visible) span { outline: 2px solid var(--biru); outline-offset: 2px; }
+.metode { position: relative; flex-direction: row !important; }
+.metode input { position: absolute; opacity: 0; inset: 0; }
+.error { margin: 0; padding: 10px 14px; border-radius: 10px; background: #fbe9e7; color: var(--salah); font-size: 14px; font-weight: 600; }
+
+/* ---------- Tombol tahan untuk bayar ---------- */
+.hold {
+  position: relative; overflow: hidden; width: 100%; padding: 18px; border: 0; border-radius: 15px;
+  background: #c9cfe8; color: var(--tinta); font-weight: 800; font-size: 16px; touch-action: none; user-select: none; -webkit-user-select: none;
+}
+.hold-fill { position: absolute; inset: 0; background: var(--biru); transform-origin: left; transform: scaleX(0); }
+.hold-label { position: relative; mix-blend-mode: normal; }
+.hold[disabled] { opacity: 0.6; }
+
+/* ---------- Sukses ---------- */
+.sukses { display: flex; flex-direction: column; align-items: flex-start; gap: 14px; }
+.sukses svg { width: 72px; height: 72px; }
+.sukses circle, .sukses path { fill: none; stroke: var(--biru); stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
+.sukses h3 { margin: 0; font-size: 26px; letter-spacing: -0.02em; }
+.sukses p { margin: 0; line-height: 1.5; }
+.kode { font-weight: 800; letter-spacing: 0.04em; padding: 6px 12px; border-radius: 8px; background: var(--putih); }
+
+/* ---------- Admin ---------- */
+.admin { width: min(520px, calc(100% - 24px)); max-height: 90vh; padding: 0; border: 0; border-radius: 16px; background: var(--kertas); color: var(--tinta); }
+.admin::backdrop { background: rgba(15, 20, 25, 0.5); }
+.admin .form, .admin .sub, .admin-list { margin-left: 24px; margin-right: 24px; }
+.sub { font-size: 16px; margin-top: 28px; margin-bottom: 8px; }
+.admin-list { list-style: none; padding: 0; margin-bottom: 24px; display: flex; flex-direction: column; gap: 6px; }
+.admin-list li { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 10px 0; border-bottom: 1px solid var(--garis); font-size: 14px; }
+.admin .form { padding-top: 20px; }
+
+.footer { padding: 28px clamp(16px, 4vw, 48px); border-top: 1px solid var(--garis); font-size: 13px; color: var(--abu); }
+
+@media (max-width: 520px) {
+  .nav { gap: 14px; }
+  .grid { grid-template-columns: 1fr; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  * { transition: none !important; }
+}
+
+/* ---------- Coverflow ---------- */
+.coverflow {
+  position: relative; overflow-x: auto; overflow-y: hidden; padding: 48px 0 56px;
+  scroll-snap-type: x mandatory; scrollbar-width: none;
+  -webkit-mask-image: linear-gradient(to right, transparent 4%, #000 24%, #000 76%, transparent 96%);
+  mask-image: linear-gradient(to right, transparent 4%, #000 24%, #000 76%, transparent 96%);
+}
+.coverflow::-webkit-scrollbar { display: none; }
+.cf-list { display: flex; margin: 0; padding: 0; list-style: none; width: max-content; }
+.cf-item { position: relative; flex: 0 0 auto; width: clamp(200px, 26vw, 260px); scroll-snap-align: center; }
+.cf-btn {
+  display: flex; flex-direction: column; gap: 8px; width: 100%; padding: 0; border: 0; background: none; text-align: left;
+  will-change: transform;
+}
+.cf-btn .tile { box-shadow: 0 10px 40px rgba(15, 20, 25, 0.22); }
+.cf-nama { font-weight: 700; }
+.cf-hint { margin: 0 0 36px; text-align: center; }
+
+/* ---------- Detail produk (animateLayout) ---------- */
+.kartu .tile { cursor: pointer; }
+.detail { grid-column: 1 / -1; display: grid; grid-template-columns: minmax(0, 400px) 1fr; gap: 32px; align-items: center; }
+.tile.besar { width: 100%; }
+.tile.besar .glyph { font-size: clamp(110px, 16vw, 180px); }
+.detail-info { display: flex; flex-direction: column; gap: 10px; }
+.detail-info h3 { margin: 0; font-size: clamp(26px, 4vw, 38px); letter-spacing: -0.03em; }
+.detail-info p { margin: 0; line-height: 1.5; }
+.detail-aksi { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 8px; }
+@media (max-width: 700px) { .detail { grid-template-columns: 1fr; gap: 18px; } }
+
+/* ---------- Gestur ---------- */
+.logo { display: inline-block; transition: color 0.2s; }
+.logo:hover { color: var(--custom); }
+.hero-logo .mask { position: relative; cursor: grab; user-select: none; -webkit-user-select: none; touch-action: pan-y; }
+.hero-logo .huruf { transition: color 0.2s; }
+.hero-logo .mask:hover .huruf { color: var(--custom); }
+.sedang-drag { z-index: 5; cursor: grabbing !important; }
+.cf-btn .tile { cursor: grab; user-select: none; -webkit-user-select: none; position: relative; }
+/* =================================
+   FTH CINEMATIC ANIMATION
+================================= */
+
+/* Animasi kemunculan produk */
+.kartu {
+  opacity: 0;
+  transform: translateY(45px);
+  transition:
+    opacity 0.8s ease,
+    transform 0.8s cubic-bezier(.2,.8,.2,1);
+}
+
+.kartu.fth-muncul {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Efek foto produk */
+.kartu .tile {
+  position: relative;
+  overflow: hidden;
+  border-radius: 20px;
+  transition:
+    transform 0.6s cubic-bezier(.2,.8,.2,1),
+    box-shadow 0.6s ease,
+    background-color 0.4s ease;
+}
+
+.kartu:hover .tile {
+  transform: scale(1.135);
+  box-shadow: 0 35px 55px rgba(15,20,25,.18);
+}
+
+/* Efek cahaya saat hover */
+.kartu .tile::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    120deg,
+    transparent 30%,
+    rgba(255,255,255,.35) 50%,
+    transparent 50%
+  );
+  transform: translateX(-120%);
+  transition: transform .8s ease;
+  pointer-events: none;
+}
+
+.kartu:hover .tile::after {
+  transform: translateX(120%);
+}
+
+/* Coverflow lebih sinematik */
+.cf-btn .tile {
+  transition:
+    box-shadow .5s ease,
+    filter .5s ease;
+}
+
+.cf-btn:hover .tile {
+  box-shadow: 0 25px 60px rgba(15,20,25,.3);
+  filter: brightness(1.08);
+}
+
+/* Tombol lebih hidup */
+.btn,
+.pill,
+.basket {
+  transition:
+    transform .3s ease,
+    background-color .3s ease,
+    box-shadow .3s ease;
+}
+
+.btn:hover,
+.pill:hover {
+  transform: translateY(-3px);
+}
+
+.basket:hover {
+  transform: scale(1.08);
+}
+
+/* Detail produk */
+.detail {
+  animation: fthDetail .7s cubic-bezier(.2,.8,.2,1) both;
+}
+
+@keyframes fthDetail {
+  from {
+    opacity: 0;
+    transform: translateY(35px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Tampilan HP */
+@media (max-width: 520px) {
+  .kartu:hover .tile {
+    transform: none;
+  }
+}
+
+/* Aksesibilitas */
+@media (prefers-reduced-motion: reduce) {
+  .kartu,
+  .kartu .tile,
+  .btn,
+  .pill,
+  .basket,
+  .detail {
+    animation: none !important;
+    transition: none !important;
+    transform: none !important;
+  }
+
+  .kartu {
+    opacity: 1;
+  }
+}
+.foto-produk {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: inherit;
+}
+
+.tile,
+.mini {
+  overflow: hidden;
+}
+
+.mini .foto-produk {
+  width: 100%;
+  height: 100%;
+}
+/* Styling Button Liquid Glass */
+button, .btn-glass {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 24px;
+  
+  /* Efek Kaca Cair (Liquid Glass) */
+  background: rgba(255, 255, 255, 0.25); /* Transparan lembut */
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  
+  /* Bentuk & Garis Tepi */
+  border: 1px solid rgba(113, 113, 113, 0.4);
+  border-radius: 20px; /* Membuat sudutnya melengkung lonjong / pill shape */
+  color: var(--tinta, #333); /* Menyesuaikan warna teks proyek Anda */
+  font-weight: 600;
+  cursor: pointer;
+  overflow: hidden;
+  
+  /* Bayangan kedalaman & Kilau dalam */
+  box-shadow: 
+    inset 0 1px 1px 0 rgba(255, 255, 255, 0.6), /* Kilau bagian atas */
+    0 4px 20px 0 rgba(0, 0, 0, 0.08);          /* Bayangan lembut */
+  
+  transition: all 0.3s ease;
+}
+
+/* Efek Kilau Cahaya Mengalir di Dalam Tombol */
+button::before, .btn-glass::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg, 
+    transparent, 
+    rgba(255, 255, 255, 0.4), 
+    transparent
+  );
+  transition: 0.5s;
+}
+
+/* Efek saat kursor menyentuh (Hover) */
+button:hover, .btn-glass:hover {
+  background: rgba(255, 255, 255, 0.4);
+  border-color: rgba(255, 255, 255, 0.7);
+  transform: translateY(-2px);
+  box-shadow: 
+    inset 0 1px 2px 0 rgba(255, 255, 255, 0.8),
+    0 6px 24px 0 rgba(0, 0, 0, 0.12);
+}
+
+/* Efek kilau berjalan saat di-hover */
+button:hover::before, .btn-glass:hover::before {
+  left: 100%;
+}
+
+/* Efek saat tombol ditekan (Active) */
+button:active, .btn-glass:active {
+  transform: translateY(0);
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* =================================
+   FATHURCLOTH - LIGHT MONOCHROME
+================================= */
+
+/* VIDEO BACKGROUND FATHURCLOTH */
+.video-background {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  pointer-events: none;
+  background: #bdbdbd;
+}
+
+.video-background video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+
+  /* Pengaturan warna video */
+  filter: contrast(1.35) brightness(0.90) saturate(0.85);
+}
+
+.video-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.12);
+}
+
+/* Pastikan konten tetap terbaca */
+body {
+  background: transparent !important;
+  color: #111111;
+}

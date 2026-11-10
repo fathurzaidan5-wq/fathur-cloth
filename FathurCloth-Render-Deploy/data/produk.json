@@ -1,0 +1,293 @@
+[
+  {
+    "id": "3ef8c460",
+    "nama": "BOXY T-SHIRT CHMB WHITE",
+    "harga": 799000,
+    "kategori": "Atasan",
+    "emoji": "👕",
+    "foto": "/static/uploads/053afad0afed499b90ce18100142ce23.jpg",
+    "ukuran": [
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "warna": [
+      {
+        "nama": "Putih",
+        "hex": "#f1f1ec"
+      }
+    ]
+  },
+  {
+    "id": "740dc43e",
+    "nama": "BOXY T-SHIRT CHMB STAR LOGO",
+    "harga": 899000,
+    "kategori": "Atasan",
+    "emoji": "👕",
+    "foto": "/static/uploads/7178f5e058114f1c99b8c60e7541999b.jpg",
+    "ukuran": [
+      "M",
+      "L",
+      "XL"
+    ],
+    "warna": [
+      {
+        "nama": "Hitam",
+        "hex": "#1b1f24"
+      }
+    ]
+  },
+  {
+    "id": "d9ae7621",
+    "nama": "BOXY T-SHIRT CALLE X SNSB",
+    "harga": 1000000,
+    "kategori": "Atasan",
+    "emoji": "👕",
+    "foto": "/static/uploads/48e28c8b4bd04e6ba491d4ef1b3c12d6.jpg",
+    "ukuran": [
+      "M",
+      "L",
+      "XL"
+    ],
+    "warna": [
+      {
+        "nama": "Hitam",
+        "hex": "#1b1f24"
+      }
+    ]
+  },
+  {
+    "id": "7585254f",
+    "nama": "HOODIE CALLE X SNSB BOXY",
+    "harga": 1890000,
+    "kategori": "Atasan",
+    "emoji": "👕",
+    "foto": "/static/uploads/450665348e4c415ba9cd7f4032e61584.jpg",
+    "ukuran": [
+      "M",
+      "L",
+      "XL"
+    ],
+    "warna": [
+      {
+        "nama": "Hitam",
+        "hex": "#1b1f24"
+      }
+    ]
+  },
+  {
+    "id": "bb3669d8",
+    "nama": "HOODIE CALLE X SNSB BOXY FIT",
+    "harga": 1999000,
+    "kategori": "Atasan",
+    "emoji": "👕",
+    "foto": "/static/uploads/230e7358506b49e59d0b0e1fc23693dc.jpg",
+    "ukuran": [
+      "M",
+      "L",
+      "XL"
+    ],
+    "warna": [
+      {
+        "nama": "Hitam",
+        "hex": "#1b1f24"
+      }
+    ]
+  },
+  {
+    "id": "d916cdb0",
+    "nama": "HOODIE CALLE BASIC BLACK",
+    "harga": 1799000,
+    "kategori": "Atasan",
+    "emoji": "👕",
+    "foto": "/static/uploads/dc69fdfa7ffc4030bc11ddcf9d4abe74.jpg",
+    "ukuran": [
+      "M",
+      "L",
+      "XL"
+    ],
+    "warna": [
+      {
+        "nama": "Hitam",
+        "hex": "#1b1f24"
+      }
+    ]
+  },
+  {
+    "id": "cb8843f3",
+    "nama": "ZIPPER CALLE GREY",
+    "harga": 2100000,
+    "kategori": "Atasan",
+    "emoji": "👕",
+    "foto": "/static/uploads/62cdf88a4b1b4ba9aa84d1c5bd18456f.jpg",
+    "ukuran": [
+      "M",
+      "L",
+      "XL"
+    ],
+    "warna": [
+      {
+        "nama": "Putih",
+        "hex": "#f1f1ec"
+      }
+    ]
+  },
+  {
+    "id": "9865b266",
+    "nama": "ZIPPER CALLE BLUE BOXY FIT",
+    "harga": 2100000,
+    "kategori": "Atasan",
+    "emoji": "👕",
+    "foto": "/static/uploads/c2ca093a545043bbb18ed2c87ef168c8.jpg",
+    "ukuran": [
+      "M",
+      "L",
+      "XL"
+    ],
+    "warna": [
+      {
+        "nama": "Putih",
+        "hex": "#f1f1ec"
+      }
+    ]
+  },
+  {
+    "id": "8c0bb315",
+    "nama": "PREFACE BOXY BLACK",
+    "harga": 2300000,
+    "kategori": "Atasan",
+    "emoji": "👕",
+    "foto": "/static/uploads/b40f8a0a8b5d4713b1f08c241f18048d.jpg",
+    "ukuran": [
+      "M",
+      "L",
+      "XL"
+    ],
+    "warna": [
+      {
+        "nama": "Hitam",
+        "hex": "#1b1f24"
+      }
+    ]
+  },
+  {
+    "id": "5ecc3c02",
+    "nama": "HOODIE CHMB V2 BOXY FIT",
+    "harga": 800000,
+    "kategori": "Atasan",
+    "emoji": "👕",
+    "foto": "/static/uploads/4c8f329981f4461782ec0add226279b3.jpeg",
+    "ukuran": [
+      "M",
+      "L",
+      "XL"
+    ],
+    "warna": [
+      {
+        "nama": "Hitam",
+        "hex": "#1b1f24"
+      }
+    ]
+  },
+  {
+    "id": "e0f61ae1",
+    "nama": "HOODIE CHMB BOXY FIT",
+    "harga": 899000,
+    "kategori": "Atasan",
+    "emoji": "👕",
+    "foto": "/static/uploads/c19ec9781e0e464daca63dc127f9ff63.jpg",
+    "ukuran": [
+      "M",
+      "L",
+      "XL"
+    ],
+    "warna": [
+      {
+        "nama": "Hitam",
+        "hex": "#1b1f24"
+      },
+      {
+        "nama": "Putih",
+        "hex": "#f1f1ec"
+      }
+    ]
+  },
+  {
+    "id": "804435ee",
+    "nama": "SHORTPANTS CHMB",
+    "harga": 399000,
+    "kategori": "Bawahan",
+    "emoji": "👕",
+    "foto": "/static/uploads/ae2b56b0c417477ba57317f934719022.jpg",
+    "ukuran": [
+      "S",
+      "M",
+      "L"
+    ],
+    "warna": [
+      {
+        "nama": "Hitam",
+        "hex": "#1b1f24"
+      }
+    ]
+  },
+  {
+    "id": "140a8611",
+    "nama": "SWEATPANTS CALLE",
+    "harga": 699000,
+    "kategori": "Bawahan",
+    "emoji": "👕",
+    "foto": "/static/uploads/fcddb440d24e4ef994164461488d4d20.jpg",
+    "ukuran": [
+      "M",
+      "L",
+      "XL"
+    ],
+    "warna": [
+      {
+        "nama": "Hitam",
+        "hex": "#1b1f24"
+      }
+    ]
+  },
+  {
+    "id": "8c63d573",
+    "nama": "DENIM CALLE",
+    "harga": 1599000,
+    "kategori": "Luaran",
+    "emoji": "👕",
+    "foto": "/static/uploads/1d9b3ba2202646ec9d6b946bb4d40cc0.jpg",
+    "ukuran": [
+      "M",
+      "L",
+      "XL"
+    ],
+    "warna": [
+      {
+        "nama": "Hitam",
+        "hex": "#1b1f24"
+      }
+    ]
+  },
+  {
+    "id": "f513ad24",
+    "nama": "WINGMAN DENIM",
+    "harga": 4999000,
+    "kategori": "Atasan",
+    "emoji": "👕",
+    "foto": "/static/uploads/dfda76647c42454c8cc99661e36768fa.jpg",
+    "ukuran": [
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "warna": [
+      {
+        "nama": "Hitam",
+        "hex": "#1b1f24"
+      }
+    ]
+  }
+]
