@@ -1,0 +1,9 @@
+[build]
+  # Aset (CSS, JS, video, foto) dipakai bersama dengan versi Flask di FathurCloth-Render-Deploy/static
+  command = "rm -rf public/static && cp -r FathurCloth-Render-Deploy/static public/static"
+  publish = "public"
+
+[[headers]]
+  for = "/static/*"
+  [headers.values]
+    Cache-Control = "public, max-age=3600"

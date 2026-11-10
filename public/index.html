@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>FathurCloth (FTH) - Baju harian yang awet</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  
+
+<div class="video-background">
+  <video autoplay muted loop playsinline>
+    <source
+      src="/static/gradient.mp4"
+      type="video/mp4"
+    >
+  </video>
+</div>
+
+  <header id="header" class="header">
+    <a class="logo" href="#atas" aria-label="FathurCloth">FTH</a>
+    <nav class="nav">
+      <a href="#katalog">Katalog</a>
+      <button class="link" id="buka-admin" type="button">Kelola katalog</button>
+      <button id="basket" class="basket" type="button" aria-label="Buka keranjang">
+        <span class="ring"></span>
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M6 7h12l1 13H5L6 7Z"/><path d="M9 10V6a3 3 0 0 1 6 0v4"/>
+        </svg>
+        <span id="badge" class="badge" hidden>0</span>
+      </button>
+    </nav>
+  </header>
+<div class="gradient-bg">
+  <div class="gradient-orb orb-1"></div>
+  <div class="gradient-orb orb-2"></div>
+  <div class="gradient-orb orb-3"></div>
+  <div class="gradient-overlay"></div>
+</div>
+
+  <main id="atas">
+    <section class="hero">
+      <h1 class="hero-logo" aria-label="FTH">
+        <span class="mask"><span class="huruf">F</span></span><span class="mask"><span class="huruf">T</span></span><span class="mask"><span class="huruf">H</span></span>
+      </h1>
+      <p class="hero-teks"><strong>FathurCloth</strong> membuat baju harian dengan potongan rapi dan bahan yang tidak cepat lusuh. Pilih ukuran, pilih warna, bayar.</p>
+      <a class="btn" href="#katalog">Lihat katalog</a>
+    </section>
+
+    <section id="katalog" class="katalog">
+      <div id="coverflow" class="coverflow" aria-label="Sorotan produk"><ul id="cf-list" class="cf-list"></ul></div>
+      <p class="catatan cf-hint">Geser untuk melihat produk. Ketuk produk di tengah untuk membuka detail.</p>
+      <div class="katalog-head">
+        <h2>Katalog</h2>
+        <div id="filter" class="filter" role="group" aria-label="Filter kategori"></div>
+      </div>
+      <div id="grid" class="grid" aria-live="polite"></div>
+    </section>
+  </main>
+
+  <footer class="footer">FathurCloth (FTH) &copy; 2026. Proyek UTS Python, Universitas Bina Sarana Informatika.</footer>
+
+  <div id="overlay" class="overlay" hidden></div>
+  <aside id="drawer" class="drawer" hidden aria-label="Keranjang belanja">
+    <div class="d-head">
+      <h2 id="d-title">Keranjang</h2>
+      <button id="d-close" class="icon-btn" type="button" aria-label="Tutup">&times;</button>
+    </div>
+    <div id="d-body" class="d-body"></div>
+  </aside>
+
+  <dialog id="admin" class="admin">
+    <div class="d-head">
+      <h2>Kelola katalog</h2>
+      <button id="admin-tutup" class="icon-btn" type="button" aria-label="Tutup">&times;</button>
+    </div>
+    <form id="form-produk" class="form"
+      autocomplete="off"
+      enctype="multipart/form-data">
+      <label>Nama produk<input name="nama" required maxlength="40" placeholder="Kaos Oversize FTH"></label>
+      <div class="dua">
+        <label>Harga (Rp)<input name="harga" type="number" min="1000" step="1000" required placeholder="149000"></label>
+        <label>Foto produk
+  <input
+    type="file"
+    name="foto"
+    accept="image/jpeg,image/png,image/webp,image/jpg"
+    required
+  >
+</label>
+      </div>
+      <label>Kategori
+        <select name="kategori"><option>Atasan</option><option>Bawahan</option><option>Luaran</option><option>Aksesoris</option></select>
+      </label>
+      <fieldset>
+        <legend>Ukuran tersedia</legend>
+        <div class="chips">
+          <label class="chip"><input type="checkbox" name="ukuran" value="S"><span>S</span></label><label class="chip"><input type="checkbox" name="ukuran" value="M" checked><span>M</span></label><label class="chip"><input type="checkbox" name="ukuran" value="L" checked><span>L</span></label><label class="chip"><input type="checkbox" name="ukuran" value="XL"><span>XL</span></label><label class="chip"><input type="checkbox" name="ukuran" value="XXL"><span>XXL</span></label>
+        </div>
+      </fieldset>
+      <label>Warna (Nama=#KodeHex, pisahkan koma)
+        <input name="warna" required value="Hitam=#1b1f24, Putih=#f1f1ec">
+      </label>
+      <p id="admin-error" class="error" role="alert" hidden></p>
+      <button class="btn" type="submit">Simpan produk</button>
+    </form>
+    <h3 class="sub">Produk saat ini</h3>
+    <ul id="admin-list" class="admin-list"></ul>
+  </dialog>
+
+  <script id="konfig" type="application/json">{"ukuran": ["S", "M", "L", "XL", "XXL"], "kategori": ["Atasan", "Bawahan", "Luaran", "Aksesoris"], "metode": {"transfer": "Transfer Bank", "qris": "QRIS", "ewallet": "E-Wallet", "cod": "Bayar di Tempat"}, "admin": true}</script>
+  <script type="module" src="/static/app.js"></script>
+</body>
+</html>

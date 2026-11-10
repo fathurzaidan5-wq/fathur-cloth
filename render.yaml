@@ -2,5 +2,6 @@ services:
   - type: web
     name: fathurcloth
     runtime: python
+    rootDir: FathurCloth-Render-Deploy
     buildCommand: pip install -r requirements.txt
     startCommand: gunicorn app:app
