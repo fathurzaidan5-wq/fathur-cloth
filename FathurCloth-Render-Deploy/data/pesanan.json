@@ -1,0 +1,122 @@
+[
+  {
+    "id": "FTH-261109-1DC9",
+    "waktu": "2026-11-09T20:22:30",
+    "pembeli": {
+      "nama": "JULE",
+      "telepon": "083454338349",
+      "alamat": "perdana FAIUHIAUWIAWUNAININAIENDAIWE"
+    },
+    "metode": "Bayar di Tempat",
+    "baris": [
+      {
+        "nama": "HOODIE CALLE X SNSB BOXY FIT",
+        "ukuran": "M",
+        "warna": "Hitam",
+        "qty": 1,
+        "jumlah": 1999000
+      },
+      {
+        "nama": "BOXY T-SHIRT CALLE X SNSB",
+        "ukuran": "M",
+        "warna": "Hitam",
+        "qty": 1,
+        "jumlah": 1000000
+      }
+    ],
+    "subtotal": 2999000,
+    "diskon": 299900,
+    "ongkir": 0,
+    "total": 2699100
+  },
+  {
+    "id": "FTH-261109-1F8A",
+    "waktu": "2026-11-09T20:27:29",
+    "pembeli": {
+      "nama": "IUOUOIOI",
+      "telepon": "083454338349",
+      "alamat": "YFIGIUJIUG;IOUGHO;UGI;OUH'IOHLIHI"
+    },
+    "metode": "Bayar di Tempat",
+    "baris": [
+      {
+        "nama": "HOODIE CALLE BASIC BLACK",
+        "ukuran": "L",
+        "warna": "Hitam",
+        "qty": 1,
+        "jumlah": 1799000
+      },
+      {
+        "nama": "BOXY T-SHIRT CHMB STAR LOGO",
+        "ukuran": "M",
+        "warna": "Hitam",
+        "qty": 1,
+        "jumlah": 899000
+      }
+    ],
+    "subtotal": 2698000,
+    "diskon": 269800,
+    "ongkir": 0,
+    "total": 2428200
+  },
+  {
+    "id": "FTH-261110-49BF",
+    "waktu": "2026-11-10T12:14:20",
+    "pembeli": {
+      "nama": "Fathur Rahman",
+      "telepon": "0887979870",
+      "alamat": "perdana igg97908h09h098h"
+    },
+    "metode": "QRIS",
+    "baris": [
+      {
+        "nama": "BOXY T-SHIRT CHMB WHITE",
+        "ukuran": "S",
+        "warna": "Putih",
+        "qty": 1,
+        "jumlah": 799000
+      }
+    ],
+    "subtotal": 799000,
+    "diskon": 0,
+    "ongkir": 0,
+    "total": 799000
+  },
+  {
+    "id": "FTH-261110-7F5F",
+    "waktu": "2026-11-10T15:52:51",
+    "pembeli": {
+      "nama": "Fathur Rahman",
+      "telepon": "0887979870",
+      "alamat": "perdana7wfq8efqiegiqwuegoquegqoe"
+    },
+    "metode": "Bayar di Tempat",
+    "baris": [
+      {
+        "nama": "HOODIE CHMB V2 BOXY FIT",
+        "ukuran": "M",
+        "warna": "Hitam",
+        "qty": 1,
+        "jumlah": 800000
+      },
+      {
+        "nama": "BOXY T-SHIRT CHMB WHITE",
+        "ukuran": "S",
+        "warna": "Putih",
+        "qty": 1,
+        "jumlah": 799000
+      },
+      {
+        "nama": "ZIPPER CALLE BLUE BOXY FIT",
+        "ukuran": "M",
+        "warna": "Putih",
+        "qty": 1,
+        "jumlah": 2100000
+      }
+    ],
+    "subtotal": 3699000,
+    "diskon": 369900,
+    "ongkir": 0,
+    "total": 3329100
+  }
+]
